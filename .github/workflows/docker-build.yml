@@ -1,0 +1,19 @@
+
+name: Testar Docker
+
+on:
+  push:
+    branches:
+      - site1
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Construir imagem Docker
+        run: docker build -t ugb-sites .
